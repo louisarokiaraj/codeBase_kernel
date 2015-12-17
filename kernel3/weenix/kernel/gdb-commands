@@ -1,0 +1,10 @@
+/home/louis/codeBase/codeBase/kernel3/weenix/kernel/main/gdt.gdb
+/home/louis/codeBase/codeBase/kernel3/weenix/kernel/mm/pagetable.gdb
+/home/louis/codeBase/codeBase/kernel3/weenix/kernel/mm/memcheck.py
+/home/louis/codeBase/codeBase/kernel3/weenix/kernel/mm/page.py
+/home/louis/codeBase/codeBase/kernel3/weenix/kernel/mm/slab.py
+/home/louis/codeBase/codeBase/kernel3/weenix/kernel/proc/kthread.gdb
+/home/louis/codeBase/codeBase/kernel3/weenix/kernel/proc/proc.py
+/home/louis/codeBase/codeBase/kernel3/weenix/kernel/util/debug.py
+/home/louis/codeBase/codeBase/kernel3/weenix/kernel/util/list.py
+/home/louis/codeBase/codeBase/kernel3/weenix/kernel/vm/vmmap.gdb
