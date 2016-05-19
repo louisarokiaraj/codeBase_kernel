@@ -134,30 +134,28 @@ sched_cancellable_sleep_on(ktqueue_t *q)
 {
         KASSERT(q!=NULL && curthr !=NULL);
         if(curthr->kt_cancelled == 1){
-        dbg(DBG_PRINT, "(GRADING1C 5) Current thread is already in cancelled state\n");
-                curproc->p_state = PROC_DEAD;
-                curthr->kt_state = KT_EXITED;
-        dbg(DBG_PRINT, "(GRADING1C 5) Current thread is already in cancelled state, So returning with EINTR\n");
-                return -EINTR;
+            dbg(DBG_PRINT, "(GRADING1C 5) Current thread is already in cancelled state\n");
+            curproc->p_state = PROC_DEAD;
+            curthr->kt_state = KT_EXITED;
+            dbg(DBG_PRINT, "(GRADING1C 5) Current thread is already in cancelled state, So returning with EINTR\n");
+            return -EINTR;
         }
         if(curthr->kt_cancelled == 0){
-        dbg(DBG_PRINT, "(GRADING1C 3) Cancellable sleeping State is ON\n");
+            dbg(DBG_PRINT, "(GRADING1C 3) Cancellable sleeping State is ON\n");
             curthr->kt_state = KT_SLEEP_CANCELLABLE;
-        dbg(DBG_PRINT, "(GRADING1C 3) Cancellable Sleeping mode ON\n");
+            dbg(DBG_PRINT, "(GRADING1C 3) Cancellable Sleeping mode ON\n");
             ktqueue_enqueue(q,curthr);
             sched_switch();
             if(curthr->kt_cancelled == 1){
-        dbg(DBG_PRINT, "(GRADING1C 5) Current thread is already in cancelled state\n");
+                dbg(DBG_PRINT, "(GRADING1C 5) Current thread is already in cancelled state\n");
                 curproc->p_state = PROC_DEAD;
                 curthr->kt_state = KT_EXITED;
-        dbg(DBG_PRINT, "(GRADING1C 5) Current thread is already in cancelled state, So returning with EINTR\n");
+                dbg(DBG_PRINT, "(GRADING1C 5) Current thread is already in cancelled state, So returning with EINTR\n");
                 return -EINTR;
             }     
-        }
-        else
-        {
-        dbg(DBG_PRINT, "(GRADING1C 5) Returning from the Sched Cancellable Sleep on. \n");
-        return -EINTR;
+        }else{
+            dbg(DBG_PRINT, "(GRADING1C 5) Returning from the Sched Cancellable Sleep on. \n");
+            return -EINTR;
         }    
       return 0;
 }

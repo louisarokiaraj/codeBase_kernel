@@ -29,7 +29,7 @@ typedef struct tagMy402ListElem {
 typedef struct tagMy402List {
     int num_members;
     My402ListElem anchor;
-
+    
     /* You do not have to set these function pointers */
     int  (*Length)(struct tagMy402List *);
     int  (*Empty)(struct tagMy402List *);
